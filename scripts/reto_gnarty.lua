@@ -34,6 +34,7 @@ end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.analisis_constante2)
 
+-- Conteo para cambio entre carta e item
 local segundos = 0
 function EBOI_EVENT:deteccion_de_dropeo_gnarty(ent,inp,button)
     if Isaac.GetChallenge() ~= challenge then return end
