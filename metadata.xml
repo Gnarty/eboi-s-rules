@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Eboi's rules</name>
+    <directory>eboi's rules</directory>
+    <id>3424543796</id>
+    <description>Complemento del mod de challenges para el correcto funcionamiento de los retos de elai
+
+
+VERSION Beta 0.7 (antigua)
+Se agrego la mecanica unica del reto de gaby, ahora la holy mantle al ser destruida activa un the tower y tambien activa objetos que se activan al recibir daño
+
+
+VERSION Beta 0.8 (actual)
+- se agrego la mecanica de no parar de moverse al reto de druida
+- se agrego la mecanica de limpiar piso al reto de druida pero que no hace nada
+- se agrego la mecanica de dado aleatorio al entrar a una sala nueva al reto de druida
+
+- se agregaron 3 esaus al reto de smol (cambiara)
+
+VERSION Beta 0.8.1 (actual)
+ se cambio el nombre del mod interna y externamente</description>
+    <version>0.10</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Challenges"/>
+</metadata>
