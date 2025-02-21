@@ -1,8 +1,9 @@
 <shaders>
-	<shader name="RandomColors">
+	<shader name="control_de_color">
 		<parameters>
-			<param name="PlayerPos" type="vec2"/>
-			<param name="Time" type="float"/>
+			<param name="red" type="float"/>
+			<param name="blue" type="float"/>
+			<param name="green" type="float"/>
 		</parameters>
 		<vertex><![CDATA[
 			attribute vec3 Position;
@@ -10,21 +11,24 @@
 			attribute vec2 TexCoord;
 			attribute vec4 RenderData;
 			attribute float Scale;
-			attribute vec2 PlayerPos;
-			attribute float Time;
+			attribute float red;
+			attribute float blue;
+			attribute float green;
 			varying vec4 Color0;
 			varying vec2 TexCoord0;
 			varying vec4 RenderDataOut;
 			varying float ScaleOut;
-			varying vec2 PlayerPosOut;
-			varying float TimeOut;
+			varying float redOut;
+			varying float blueOut;
+			varying float greenOut;
 			uniform mat4 Transform;
 			void main(void)
 			{
 				RenderDataOut = RenderData;
 				ScaleOut = Scale;			// Passing data to fragment shader
-				PlayerPosOut = PlayerPos;	// Passing data to fragment shader
-				TimeOut = Time;				// Passing data to fragment shader
+				redOut = red;
+				blueOut = blue;
+				greenOut = green;
 				Color0 = Color;
 				TexCoord0 = TexCoord;
 				gl_Position = Transform * vec4(Position.xyz, 1.0);
@@ -35,15 +39,16 @@
 			varying mediump vec2 TexCoord0;
 			varying lowp vec4 RenderDataOut;
 			varying lowp float ScaleOut;
-			varying mediump vec2 PlayerPosOut;
-			varying lowp float TimeOut;
+			varying lowp float redOut;
+			varying lowp float blueOut;
+			varying lowp float greenOut;
 			uniform sampler2D Texture0;
 			void main(void)
 			{
 				vec4 Color = Color0 * texture2D(Texture0, TexCoord0);
-				Color.r *= 0.3;
-				Color.g *= 0.4f;
-				Color.b *= 1.5f;
+				Color.r *= redOut;
+				Color.g *= greenOut;
+				Color.b *= blueOut;
 				gl_FragColor = Color;
 			}
 		]]></fragment>

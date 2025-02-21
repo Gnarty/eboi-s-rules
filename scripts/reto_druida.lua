@@ -1,7 +1,9 @@
 local challenge = Isaac.GetChallengeIdByName("Druida's Funhouse")
 local tiempo = 0
 local myRNG = RNG()
-
+local colores = {1,1,1}
+local depresion = 0
+local se_limpio_el_piso = false
 function EBOI_EVENT:movimiento_constante()
     if Isaac.GetChallenge() ~= challenge then return end
     local player = Isaac.GetPlayer()
@@ -12,7 +14,7 @@ function EBOI_EVENT:movimiento_constante()
         tiempo = 0
         return
     elseif tiempo > 15 then
-        player:TakeDamage(1,DamageFlag.DAMAGE_NOKILL,EntityRef(player),-1)
+        player:TakeDamage(1,DamageFlag.DAMAGE_NO_PENALTIES,EntityRef(player),1)
     end
 
 
@@ -65,13 +67,13 @@ function EBOI_EVENT:dados()
     local Sin_slot = -1
     if primera_vez_en_sala then
 
----@diagnostic disable-next-line: param-type-mismatch
+---@diagnostic disable-next-line: param-type-mismatchs
         player:UseActiveItem(dados[numero_random_de_dado],tags[numero_random_de_dado],Sin_slot,sin_data)
 
         
     end
     --print("numero random",numero_random_de_dado, "dado random",dados[numero_random_de_dado],  "tags",tags[numero_random_de_dado]
-  
+    
 
 end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_NEW_ROOM,EBOI_EVENT.dados)
@@ -104,7 +106,6 @@ function EBOI_EVENT:deteccion_de_salas()
         [RoomType.ROOM_BARREN] = true,
         [RoomType.ROOM_CHEST] = true,
         [RoomType.ROOM_DICE] = true,
-        [RoomType.ROOM_DICE] = true,
         [RoomType.ROOM_BLACK_MARKET] = false,
         [RoomType.ROOM_GREED_EXIT] = true,
         [RoomType.ROOM_PLANETARIUM] = true,
@@ -130,7 +131,8 @@ function EBOI_EVENT:deteccion_de_salas()
 
     if salas_sin_limpiar == 0 then
         se_limpio_el_piso = true
-        
+        colores = {1,1,1}
+        depresion = 0
     end
     --print("salas sin limpiar: ", salas_sin_limpiar)
     --print("se limpio el piso?: ", se_limpio_el_piso)
@@ -142,20 +144,37 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_UPDATE,EBOI_EVENT.deteccion_de_salas
 
 function EBOI_EVENT:depresion()
 if Isaac.GetChallenge() ~= challenge then return end
-if se_limpio_el_piso then
-    print("se limpio el piso")
+
+local level = Game():GetLevel()
+
+
+if not se_limpio_el_piso then
+    depresion = depresion + 1
 end
 
+if depresion == 1 then
+    colores = {0.5,0.5,0.7}
+    level:AddCurse(LevelCurse.CURSE_OF_DARKNESS, true)
+elseif depresion == 2 then
+    colores = {0.3,0.3,0.5}
+    level:AddCurse(LevelCurse.CURSE_OF_DARKNESS, true)
+elseif depresion == 3 then
+    colores = {0.1,0.1,0.3}
+    level:AddCurse(LevelCurse.CURSE_OF_DARKNESS, true)
 end
 
+print(depresion)
+print(se_limpio_el_piso)
+end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL,EBOI_EVENT.depresion)
 
 
 function EBOI_EVENT:inicio_de_run_druida()
     if Isaac.GetChallenge() ~= challenge then return end
-    local se_limpio_el_piso = false
-    
+    se_limpio_el_piso = false
+    colores = {1,1,1}
+    depresion = 0
     print("se reinicio el piso")
     
 end    
@@ -163,15 +182,11 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,EBOI_EVENT.inicio_de_ru
 
 
 function EBOI_EVENT:color_cyan(shaderName)
-    if shaderName == 'RandomColors' and Isaac.GetChallenge() ~= challenge then
-        local playerPos = Isaac.GetPlayer(0).Position
-        local params = { 
-            PlayerPos = {   playerPos.X / 100.0,
-                            playerPos.Y / 100.0 },
-                            Time = Isaac.GetFrameCount()
-            }
+    if shaderName == 'control_de_color' then
+        local params = {red=colores[1],green=colores[2],blue = colores[3]}
         return params;
     end
 end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_GET_SHADER_PARAMS,EBOI_EVENT.color_cyan)
+
