@@ -67,7 +67,8 @@ function EBOI_EVENT:dados()
     local Sin_slot = -1
     if primera_vez_en_sala then
 
----@diagnostic disable-next-line: param-type-mismatchs
+
+---@diagnostic disable-next-line: param-type-mismatch
         player:UseActiveItem(dados[numero_random_de_dado],tags[numero_random_de_dado],Sin_slot,sin_data)
 
         
