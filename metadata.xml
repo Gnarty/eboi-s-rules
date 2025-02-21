@@ -5,21 +5,20 @@
     <id>3424543796</id>
     <description>Complemento del mod de challenges para el correcto funcionamiento de los retos de elai
 
-
-VERSION Beta 0.7 (antigua)
-Se agrego la mecanica unica del reto de gaby, ahora la holy mantle al ser destruida activa un the tower y tambien activa objetos que se activan al recibir daño
-
-
-VERSION Beta 0.8 (actual)
+VERSION Beta 0.8 (antigua)
 - se agrego la mecanica de no parar de moverse al reto de druida
 - se agrego la mecanica de limpiar piso al reto de druida pero que no hace nada
 - se agrego la mecanica de dado aleatorio al entrar a una sala nueva al reto de druida
 
 - se agregaron 3 esaus al reto de smol (cambiara)
 
-VERSION Beta 0.8.1 (actual)
- se cambio el nombre del mod interna y externamente</description>
-    <version>0.10</version>
+VERSION Beta 0.8.1 (antigua)
+ se cambio el nombre del mod interna y externamente
+
+Version Beta 0.10 (actual)
+
+- Se agregaron  mecanismos de shaders para el reto de druida con el evento de limpiar todo el piso y ahora puedes morirte si no te mueves.</description>
+    <version>0.11</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Challenges"/>
