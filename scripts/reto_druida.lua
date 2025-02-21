@@ -3,10 +3,10 @@ local tiempo = 0
 local myRNG = RNG()
 
 function EBOI_EVENT:movimiento_constante()
+    if Isaac.GetChallenge() ~= challenge then return end
     local player = Isaac.GetPlayer()
     tiempo = tiempo + 1
     --print(tiempo)
-    if Isaac.GetChallenge() ~= challenge then return end
 
     if Input.IsActionPressed(ButtonAction.ACTION_UP,0) or Input.IsActionPressed(ButtonAction.ACTION_DOWN,0) or Input.IsActionPressed(ButtonAction.ACTION_LEFT,0) or Input.IsActionPressed(ButtonAction.ACTION_RIGHT,0) then
         tiempo = 0
@@ -31,6 +31,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,EBOI_EVENT.inicio_de_ch
 
 
 function EBOI_EVENT:dados()
+    if Isaac.GetChallenge() ~= challenge then return end
     local player = Isaac.GetPlayer()
     local room = Game():GetRoom()
     local level = Game():GetLevel()
@@ -77,7 +78,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_NEW_ROOM,EBOI_EVENT.dados)
 
 
 function EBOI_EVENT:deteccion_de_salas()
-    
+    if Isaac.GetChallenge() ~= challenge then return end
     local rooms = Game():GetLevel():GetRooms()
     local salas_sin_limpiar = 0
     local player = Isaac.GetPlayer()
@@ -140,9 +141,9 @@ end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_UPDATE,EBOI_EVENT.deteccion_de_salas)
 
 function EBOI_EVENT:depresion()
-    
+if Isaac.GetChallenge() ~= challenge then return end
 if se_limpio_el_piso then
- print("se limpio el piso")
+    print("se limpio el piso")
 end
 
 end
@@ -152,9 +153,25 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL,EBOI_EVENT.depresion)
 
 
 function EBOI_EVENT:inicio_de_run_druida()
+    if Isaac.GetChallenge() ~= challenge then return end
     local se_limpio_el_piso = false
     
     print("se reinicio el piso")
     
 end    
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,EBOI_EVENT.inicio_de_run_druida)
+
+
+function EBOI_EVENT:color_cyan(shaderName)
+    if shaderName == 'RandomColors' and Isaac.GetChallenge() ~= challenge then
+        local playerPos = Isaac.GetPlayer(0).Position
+        local params = { 
+            PlayerPos = {   playerPos.X / 100.0,
+                            playerPos.Y / 100.0 },
+                            Time = Isaac.GetFrameCount()
+            }
+        return params;
+    end
+end
+
+EBOI_EVENT:AddCallback(ModCallbacks.MC_GET_SHADER_PARAMS,EBOI_EVENT.color_cyan)
