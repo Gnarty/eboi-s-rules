@@ -1,0 +1,5 @@
+<ItemPools>
+    <Pool Name="smolpresent" >
+        <Item Name="Smol's Present" weight="5" DecreaseBy="0.1" RemoveOn="0.1"/>
+    </Pool>
+</ItemPools>

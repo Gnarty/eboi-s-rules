@@ -1,0 +1,3 @@
+<items gfxroot="gfx/items/" version="1">
+    <active maxcharges="0" chargeype="normal" id="4200" name="Smol's Present" gfx="cosmol_present.png" description="To: smol From: You :) <3" quality="3"/>
+</items>
