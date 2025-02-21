@@ -4,7 +4,7 @@
 | Nombre del reto       | Descripción                        | Idea  |
 |----------------------|----------------------------------|--------|
 | Eboi's Addiction     | **Poker touch**: Cualquier trincket que agarres se volver poker chip, **Encadenado**: no puedes soltar tus objetos  | Eevee28 |
-| Gnarty's temptation  |  <span style="color:purple;"><b>Suicide touch</b></span>: cualquier carta, pildora o runa que agarres se volvera suicide king card, **Encadenado**: no puedes soltar tus objetos, **juego con la muerte**: Cada cierto tiempo el item de T-forgotten y la suicide card cambnian de lugar    | Gnarty  |
+| Gnarty's temptation  | **Suicide touch**: cualquier carta, pildora o runa que agarres se volvera suicide king card, **Encadenado**: no puedes soltar tus objetos, **juego con la muerte**: Cada cierto tiempo el item de T-forgotten y la suicide card cambnian de lugar    | Gnarty  |
 | KinKan's Awakening   | **Progreso lineal**:Tienes un limite de vida que va aumentando conforme avanzas de pisos          | KinKan  |
 | Gaby's Nightmare     | **Holy disgrace**: La holy mantle activa el efecto de the tower al ser destruida, **Super the lost**: Ahora al perder la ultima holy activas los items que son activados al recibir daño          | Gaby    |
 | With love from smol   | Agrega nuevos enemigos         | Smol24  |
