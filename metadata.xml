@@ -5,20 +5,20 @@
     <id>3424543796</id>
     <description>Complemento del mod de challenges para el correcto funcionamiento de los retos de elai
 
-VERSION Beta 0.8 (antigua)
-- se agrego la mecanica de no parar de moverse al reto de druida
-- se agrego la mecanica de limpiar piso al reto de druida pero que no hace nada
-- se agrego la mecanica de dado aleatorio al entrar a una sala nueva al reto de druida
+Version Beta 0.10 (antigua)
 
-- se agregaron 3 esaus al reto de smol (cambiara)
+- Se agregaron  mecanismos de shaders para el reto de druida con el evento de limpiar todo el piso y ahora puedes morirte si no te mueves.
 
-VERSION Beta 0.8.1 (antigua)
- se cambio el nombre del mod interna y externamente
 
-Version Beta 0.10 (actual)
+Version Beta 0.11 (actual)
 
-- Se agregaron  mecanismos de shaders para el reto de druida con el evento de limpiar todo el piso y ahora puedes morirte si no te mueves.</description>
-    <version>0.11</version>
+- Se agregaron los challenges del mod eboi's basement
+- se agrego el contenido del mod eboi's present
+- se ajusto el nivel de depresion del reto de druida
+- al llegar al nivel 3 de depresion se vuelve permanente
+- se agrego el worm touch al reto de druida (los trinckets se vuelven rainbow worm)
+- en el reto de druida no se pueden dropear items</description>
+    <version>0.12</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Challenges"/>

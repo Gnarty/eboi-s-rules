@@ -1,7 +1,10 @@
-local room = Game():GetRoom()
 local challenge = Isaac.GetChallengeIdByName("With love from smol")
+
+
+--[[  codigo del antiguo reto con esau
 local player = Isaac.GetPlayer()
 local personaje1 = PlayerType.PLAYER_JACOB_B
+local room = Game():GetRoom()
 -- Spawn de los 3 esau
 function EBOI_EVENT:iniciador_smol()
     if Isaac.GetChallenge() ~= challenge then return end
@@ -27,3 +30,5 @@ function EBOI_EVENT:test()
 end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT,EBOI_EVENT.test)
+
+]]--
