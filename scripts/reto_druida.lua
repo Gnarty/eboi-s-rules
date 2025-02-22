@@ -4,6 +4,7 @@ local myRNG = RNG()
 local colores = {1,1,1}
 local depresion = 0
 local se_limpio_el_piso = false
+local depresion_severa = false
 function EBOI_EVENT:movimiento_constante()
     if Isaac.GetChallenge() ~= challenge then return end
     local player = Isaac.GetPlayer()
@@ -154,14 +155,22 @@ if not se_limpio_el_piso then
 end
 
 if depresion == 1 then
-    colores = {0.5,0.5,0.7}
+    colores = {0.1,0.1,1}
+    print("depre 1")
     level:AddCurse(LevelCurse.CURSE_OF_DARKNESS, true)
 elseif depresion == 2 then
-    colores = {0.3,0.3,0.5}
+    colores = {0.1,0.1,0.5}
+    print("depre 2")
     level:AddCurse(LevelCurse.CURSE_OF_DARKNESS, true)
 elseif depresion == 3 then
-    colores = {0.1,0.1,0.3}
+    colores = {0.0,0.0,0.3}
+    depresion_severa = true
+    print("depre 3")
     level:AddCurse(LevelCurse.CURSE_OF_DARKNESS, true)
+end
+
+if depresion_severa then
+    colores = {0.0,0.0,0.3}
 end
 
 print(depresion)
@@ -190,4 +199,31 @@ function EBOI_EVENT:color_cyan(shaderName)
 end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_GET_SHADER_PARAMS,EBOI_EVENT.color_cyan)
+
+-- cambio de trinket
+function EBOI_EVENT:trinkettoucg(player)
+    if Isaac.GetChallenge() ~= challenge then
+        return
+    end
+
+    if not player:HasTrinket(TrinketType.TRINKET_RAINBOW_WORM) then
+        player:TryRemoveTrinket(player:GetTrinket(0))
+        player:AddTrinket(TrinketType.TRINKET_RAINBOW_WORM,true)  
+    end
+end
+
+EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.trinkettoucg)
+
+
+
+function EBOI_EVENT:deteccion_de_dropeo_druida(ent,inp,button)
+    if Isaac.GetChallenge() ~= challenge then return end
+    if not ent then return end
+    if button == 11 and ent:ToPlayer() then
+        if inp == 0 then
+            return false
+        end
+    end
+end
+EBOI_EVENT:AddCallback(ModCallbacks.MC_INPUT_ACTION, EBOI_EVENT.deteccion_de_dropeo_druida)
 

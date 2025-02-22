@@ -14,11 +14,7 @@ function EBOI_EVENT:analisis_constante(player)
 
 
     if player:HasTrinket(TrinketType.TRINKET_POKER_CHIP) then
-        --print("si lo tiene")
     else
-        --print("no lo tiene,tiene:")
-        --print(player:GetTrinket(0))
-        --print(player:GetTrinket(1))
         player:TryRemoveTrinket(player:GetTrinket(0))
         player:AddTrinket(76,true)
     end
