@@ -42,7 +42,7 @@
 -->
 
 <challenges version="1">
-	<challenge name="Eboi's Addiction" startingitems="656, 485" startingtrinkets="76" playertype="30" endstage="11" roomfilter="2,3,4,6,7,8,11,13,15,17,18,19,20,22,28," altpath="false" coins="28" difficulty="1"/>
+	<challenge name="Eboi's Addiction" startingitems="656, 485, 139" startingtrinkets="76,88" playertype="30" endstage="11" roomfilter="2,3,4,6,7,8,11,13,15,17,18,19,20,22,28," altpath="false" coins="28" difficulty="1"/>
 	<challenge name="Gnarty's temptation" startingitems="619" startingcard="46" playertype="35" endstage="13" roomfilter="2,4" getcurse="64" difficulty="1" coins="28"/>
 	<challenge name="KinKan's Awakening" startingitems="338, 579, 243, 492" startingtrinkets="121" playertype="6" roomfilter="4,9,10,12,14,15,17,18,19,20,21,22,24,28," endstage="11" altpath="false" megasatan="true" difficulty="1" coins="28" />
 	<challenge name="Gaby's Nightmare" playertype="10" startingitems="727, 634, 19, 313" startingtrinkets="152" canshoot="false" endstage="11" altpath="true" roomfilter="4" coins="28"/>
