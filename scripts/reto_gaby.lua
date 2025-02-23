@@ -1,11 +1,11 @@
 --:BombTearflagEffects(Position, Radius, TearFlags, Source, RadiusMult)
 -- TearFlags.TEAR_GHOST_BOMB
-local challenge = Isaac.GetChallengeIdByName("Gaby's Nightmare")
+local challenge_gaby = Isaac.GetChallengeIdByName("Gaby's Nightmare")
 local holy_anterior = 0
 local tiempo = 0
 local holy_rota = false
 function EBOI_EVENT:deteccion_de_fantasmas(player)
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_gaby then return end
     local efectos_jugador = player:GetEffects()
     if holy_rota then
         tiempo = tiempo + 1
@@ -39,7 +39,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.deteccion_
 
 
 function EBOI_EVENT:reinicio_de_contador_al_iniciar()
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_gaby then return end
     holy_rota = false
     tiempo = 0
 end
@@ -47,7 +47,7 @@ end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT,EBOI_EVENT.reinicio_de_contador_al_iniciar)
 
 function EBOI_EVENT:reinicio_de_contador_al_cambiar_de_cuarto()
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_gaby then return end
     holy_rota = false
     tiempo = 0
 end

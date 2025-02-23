@@ -1,4 +1,4 @@
-local challenge = Isaac.GetChallengeIdByName("Druida's Funhouse")
+local challenge_druida = Isaac.GetChallengeIdByName("Druida's Funhouse")
 local tiempo = 0
 local myRNG = RNG()
 local colores = {1,1,1}
@@ -6,7 +6,7 @@ local depresion = 0
 local se_limpio_el_piso = false
 local depresion_severa = false
 function EBOI_EVENT:movimiento_constante()
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_druida then return end
     local player = Isaac.GetPlayer()
     tiempo = tiempo + 1
     --print(tiempo)
@@ -34,7 +34,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,EBOI_EVENT.inicio_de_ch
 
 
 function EBOI_EVENT:dados()
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_druida then return end
     local player = Isaac.GetPlayer()
     local room = Game():GetRoom()
     local level = Game():GetLevel()
@@ -82,7 +82,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_NEW_ROOM,EBOI_EVENT.dados)
 
 
 function EBOI_EVENT:deteccion_de_salas()
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_druida then return end
     local rooms = Game():GetLevel():GetRooms()
     local salas_sin_limpiar = 0
     local player = Isaac.GetPlayer()
@@ -145,7 +145,7 @@ end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_UPDATE,EBOI_EVENT.deteccion_de_salas)
 
 function EBOI_EVENT:depresion()
-if Isaac.GetChallenge() ~= challenge then return end
+if Isaac.GetChallenge() ~= challenge_druida then return end
 
 local level = Game():GetLevel()
 
@@ -181,7 +181,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL,EBOI_EVENT.depresion)
 
 
 function EBOI_EVENT:inicio_de_run_druida()
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_druida then return end
     se_limpio_el_piso = false
     colores = {1,1,1}
     depresion = 0
@@ -192,17 +192,21 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,EBOI_EVENT.inicio_de_ru
 
 
 function EBOI_EVENT:color_cyan(shaderName)
-    if shaderName == 'control_de_color' then
-        local params = {red=colores[1],green=colores[2],blue = colores[3]}
-        return params;
-    end
+        if shaderName == 'control_de_color' and Isaac.GetChallenge() == challenge_druida then
+            local params = {red=colores[1],green=colores[2],blue = colores[3]}
+            return params;
+        else
+            local params = {red=1,green=1,blue = 1}
+            return params;
+        end
 end
+    
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_GET_SHADER_PARAMS,EBOI_EVENT.color_cyan)
 
 -- cambio de trinket
 function EBOI_EVENT:trinkettoucg(player)
-    if Isaac.GetChallenge() ~= challenge then
+    if Isaac.GetChallenge() ~= challenge_druida then
         return
     end
 
@@ -217,7 +221,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.trinkettou
 
 
 function EBOI_EVENT:deteccion_de_dropeo_druida(ent,inp,button)
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_druida then return end
     if not ent then return end
     if button == 11 and ent:ToPlayer() then
         if inp == 0 then

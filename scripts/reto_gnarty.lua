@@ -1,9 +1,9 @@
 local personaje1 = PlayerType.PLAYER_THESOUL_B
 local personaje2 = PlayerType.PLAYER_THEFORGOTTEN_B
-local challenge = Isaac.GetChallengeIdByName("Gnarty's temptation")
+local challenge_gnarty = Isaac.GetChallengeIdByName("Gnarty's temptation")
 -- deteccion de reto y personaje
 function EBOI_EVENT:analisis_constante2(player)
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_gnarty then return end
 
     ---print(player:GetPlayerType())
     if player:GetPlayerType() ~= personaje1 and player:GetPlayerType() ~= personaje2 then
@@ -37,7 +37,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.analisis_c
 -- Conteo para cambio entre carta e item
 local segundos = 0
 function EBOI_EVENT:deteccion_de_dropeo_gnarty(ent,inp,button)
-    if Isaac.GetChallenge() ~= challenge then return end
+    if Isaac.GetChallenge() ~= challenge_gnarty then return end
     if not ent then return end
     
     if button == 11 and ent:ToPlayer() then
