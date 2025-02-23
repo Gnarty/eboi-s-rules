@@ -3,22 +3,30 @@
     <name>Eboi's rules</name>
     <directory>eboi's rules</directory>
     <id>3424543796</id>
-    <description>Complemento del mod de challenges para el correcto funcionamiento de los retos de elai
-
-Version Beta 0.10 (antigua)
-
-- Se agregaron  mecanismos de shaders para el reto de druida con el evento de limpiar todo el piso y ahora puedes morirte si no te mueves.
+    <description>Mod del evento de Eboi28 con sus respectivos retos
 
 
-Version Beta 0.11 (actual)
+Version Beta 0.11 (antigua)
 
 - Se agregaron los challenges del mod eboi's basement
 - se agrego el contenido del mod eboi's present
 - se ajusto el nivel de depresion del reto de druida
 - al llegar al nivel 3 de depresion se vuelve permanente
 - se agrego el worm touch al reto de druida (los trinckets se vuelven rainbow worm)
-- en el reto de druida no se pueden dropear items</description>
-    <version>0.12</version>
+- en el reto de druida no se pueden dropear items
+
+Version Beta 0.12 (actual)
+
+- se areglo un bug que hacia que la depresion del reto de druida se pasara a otros retos
+
+-se areglo un bug que hacia que la activa de dados del reto de druida se pasara a otros retos
+
+- se añadio un segundo trinket permanente al reto de eevee
+
+- se añadio la mecanica de no poder agarrar items hasta usar tu activo en el reto de eevee
+
+</description>
+    <version>0.13</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Challenges"/>
