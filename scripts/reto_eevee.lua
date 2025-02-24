@@ -29,16 +29,18 @@ function EBOI_EVENT:analisis_constante(player)
     for i, entity in ipairs(Isaac.GetRoomEntities()) do
         if entity.Type == EntityType.ENTITY_PICKUP and not eevee_uso_el_item and entity.Variant == 100 then
             pickup = entity:ToPickup()
-            print(entity.Type, entity.SubType,entity.Variant, pickup.Wait )
+            --print(entity.Type, entity.SubType,entity.Variant, pickup.Wait )
             pickup.Wait = 10
+            --print(pickup.Timeout)
         elseif entity.Type == EntityType.ENTITY_PICKUP and eevee_uso_el_item and entity.Variant == 100 then
             pickup = entity:ToPickup()
-            print(entity.Type, entity.SubType, pickup.Wait )
+            --print(entity.Type, entity.SubType, pickup.Wait )
             pickup.Wait = 0
+            --print(pickup.Timeout)
         end
     end
-    print("fin")
-    print("uso item?",eevee_uso_el_item)
+    --print("fin")
+   --print("uso item?",eevee_uso_el_item)
 end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.analisis_constante)
@@ -61,6 +63,20 @@ function EBOI_EVENT:regla_de_items()
     if Isaac.GetChallenge() ~= challenge_eevee then return end
 
     eevee_uso_el_item = true
+    for i, entity in ipairs(Isaac.GetRoomEntities()) do
+        if entity.Type == EntityType.ENTITY_PICKUP and eevee_uso_el_item and entity.Variant == 100 then
+            pickup = entity:ToPickup()
+            --print(entity.Type, entity.SubType, pickup.Wait, entity:GetEntityFlags() )
+            pickup.Timeout = 200
+
+            if entity:GetEntityFlags() & EntityFlag.FLAG_ITEM_SHOULD_DUPLICATE == EntityFlag.FLAG_ITEM_SHOULD_DUPLICATE then
+                --print("Este item se duplicara")
+                entity:ClearEntityFlags(EntityFlag.FLAG_ITEM_SHOULD_DUPLICATE)
+                -- ya no XD
+            end
+        end
+    end
+    
 
 end
 
