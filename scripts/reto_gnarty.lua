@@ -1,6 +1,8 @@
 local personaje1 = PlayerType.PLAYER_THESOUL_B
 local personaje2 = PlayerType.PLAYER_THEFORGOTTEN_B
 local challenge_gnarty = Isaac.GetChallengeIdByName("Gnarty's temptation")
+local sfxManager = SFXManager()
+local segundos = 0
 -- deteccion de reto y personaje
 function EBOI_EVENT:analisis_constante2(player)
     if Isaac.GetChallenge() ~= challenge_gnarty then return end
@@ -34,16 +36,22 @@ end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.analisis_constante2)
 
+
+function EBOI_EVENT:contador_gnarty()
+    segundos = segundos + 1
+    print(segundos)
+end
+EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_UPDATE, EBOI_EVENT.contador_gnarty)
+
 -- Conteo para cambio entre carta e item
-local segundos = 0
+
 function EBOI_EVENT:deteccion_de_dropeo_gnarty(ent,inp,button)
     if Isaac.GetChallenge() ~= challenge_gnarty then return end
     if not ent then return end
-    
     if button == 11 and ent:ToPlayer() then
-        segundos = segundos + 1
-        if segundos >= 125 then
+        if segundos >= 35 then
             segundos = 0
+            sfxManager:Play(SoundEffect.SOUND_SHELLGAME, 1, 2, false, 1, 0)
             return true
         end
 
@@ -53,4 +61,5 @@ function EBOI_EVENT:deteccion_de_dropeo_gnarty(ent,inp,button)
     end
 end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_INPUT_ACTION, EBOI_EVENT.deteccion_de_dropeo_gnarty)
+
 
