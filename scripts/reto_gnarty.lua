@@ -12,11 +12,6 @@ function EBOI_EVENT:analisis_constante2(player)
         player:Die()
     end
 
-    if player:GetPlayerType() == personaje1 then
-        ---print("alma: ",player:GetCard(0),player:GetCard(1),player:GetCard(2))
-
-    end
-
     if player:GetPlayerType() == personaje2 then
 
         for i = 0, 3 do
