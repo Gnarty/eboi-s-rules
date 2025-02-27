@@ -33,8 +33,9 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.analisis_c
 
 
 function EBOI_EVENT:contador_gnarty()
+    if Isaac.GetChallenge() ~= challenge_gnarty then return end
     segundos = segundos + 1
-    print(segundos)
+    --print(segundos)
 end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_UPDATE, EBOI_EVENT.contador_gnarty)
 
