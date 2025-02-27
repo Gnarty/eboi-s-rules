@@ -1,0 +1,5 @@
+<sounds root="sounds/">
+    <sound name="gaby_sound">
+        <sample weight="1" path="gaby_sound1.wav" />
+    </sound>
+</sounds>
