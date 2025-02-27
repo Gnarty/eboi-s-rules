@@ -27,23 +27,36 @@ function EBOI_EVENT:analisis_constante(player)
         player:AddTrinket(88,true)
     end
 
+
+    -- Analisis de item
+    
+
+
     for i, entity in ipairs(Isaac.GetRoomEntities()) do
+        pickup = entity:ToPickup()
         if entity.Type == EntityType.ENTITY_PICKUP and not eevee_uso_el_item and entity.Variant == 100 then
-            pickup = entity:ToPickup()
+            
             --print(entity.Type, entity.SubType,entity.Variant, pickup.Wait )
             pickup.Wait = 10
             --print(pickup.Timeout)
         elseif entity.Type == EntityType.ENTITY_PICKUP and eevee_uso_el_item and entity.Variant == 100 then
-            pickup = entity:ToPickup()
             --print(entity.Type, entity.SubType, pickup.Wait )
             pickup.Wait = 0
             --print(pickup.Timeout)
+            if pickup.Timeout < 5   then
+                sfxManager:Play(SoundEffect.SOUND_ULTRA_GREED_COIN_DESTROY, 1, 4, false, 1, 0)
+            end
+            local sprite = entity:GetSprite()
+            sprite.Color = Color(1,1,1,pickup.Timeout/100/2)
+            
         end
+
+        
     end
     --print("fin")
    --print("uso item?",eevee_uso_el_item)
 
-    print(tiempo_sonido)
+    --print(tiempo_sonido)
    if tiempo_sonido >= 1 then
     tiempo_sonido = tiempo_sonido + 1
     if sfxManager:IsPlaying(SoundEffect.SOUND_EDEN_GLITCH) then
