@@ -6,27 +6,21 @@
     <description>Mod del evento de Eboi28 con sus respectivos retos
 
 
-Version Beta 0.11 (antigua)
 
-- Se agregaron los challenges del mod eboi's basement
-- se agrego el contenido del mod eboi's present
-- se ajusto el nivel de depresion del reto de druida
-- al llegar al nivel 3 de depresion se vuelve permanente
-- se agrego el worm touch al reto de druida (los trinckets se vuelven rainbow worm)
-- en el reto de druida no se pueden dropear items
+Version Beta 1.1 (actual)
 
-Version Beta 0.12 (actual)
+- se libera el primer reto: 
 
-- se areglo un bug que hacia que la depresion del reto de druida se pasara a otros retos
 
--se areglo un bug que hacia que la activa de dados del reto de druida se pasara a otros retos
+Eboi's Addiction  
+ **Poker touch**: Cualquier trincket que agarres se volver poker chip,.
+**Encadenado**: no puedes soltar tus objetos
+**NO! touch**: cualquier trinket que agarres en el segundo slot se volvera NO!
+**Apuesta y reclama**: No puedes agarrar items hasta que hayas intentado gamblearlo con tu activo
 
-- se añadio un segundo trinket permanente al reto de eevee
-
-- se añadio la mecanica de no poder agarrar items hasta usar tu activo en el reto de eevee
 
 </description>
-    <version>0.13</version>
+    <version>1.2</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Challenges"/>
