@@ -121,16 +121,11 @@ function EBOI_EVENT:inicio_de_juego_eevee()
 end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT,EBOI_EVENT.inicio_de_juego_eevee)
 
-function EBOI_EVENT:recibir_damage_eevee(ent)
+function EBOI_EVENT:recibir_damage_eevee()
     if Isaac.GetChallenge() ~= challenge_eevee then return end
 
-    if ent:ToPlayer():GetPlayerType() == personaje then
-        sfxManager:Play(SoundEffect.SOUND_ULTRA_GREED_SLOT_SPIN_LOOP, 1, 2, false, 1, 0)
-        tiempo_sonido = 1
-        
-    end
-    
-    
+    sfxManager:Play(SoundEffect.SOUND_ULTRA_GREED_SLOT_SPIN_LOOP, 1, 2, false, 1, 0)
+    tiempo_sonido = 1
 
 end
 
