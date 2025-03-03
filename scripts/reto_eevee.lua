@@ -43,7 +43,7 @@ function EBOI_EVENT:analisis_constante(player)
             --print(entity.Type, entity.SubType, pickup.Wait )
             pickup.Wait = 0
             --print(pickup.Timeout)
-            if pickup.Timeout < 5   then
+            if pickup.Timeout < 5 and pickup.Timeout ~= -1  then
                 sfxManager:Play(SoundEffect.SOUND_ULTRA_GREED_COIN_DESTROY, 1, 4, false, 1, 0)
             end
             local sprite = entity:GetSprite()
