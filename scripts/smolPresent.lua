@@ -20,7 +20,7 @@ function mod:smolPresentUse(item)
     local player = Isaac.GetPlayer(0)
     local pos = Isaac.GetFreeNearPosition(player.Position, 25)
     local r = rng:RandomInt(100)
-    
+    print("se uso el item")
     -- Selección del ítem basado en la probabilidad
     local chosenItem
     local cumulativeWeight = 0

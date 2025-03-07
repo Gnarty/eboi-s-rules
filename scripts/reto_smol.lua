@@ -1,9 +1,10 @@
-local challenge = Isaac.GetChallengeIdByName("With love from smol")
+local challenge_smol = Isaac.GetChallengeIdByName("With love from smol")
 
 
 
 
 function EBOI_EVENT:cambiador_de_items_smol()
+    if Isaac.GetChallenge() ~= challenge_smol then return end
     local regalo_smol = Isaac.GetItemIdByName("Smol's Present")
     local items_regalo = {
         { id = 644, weight = 50, name = "Consolation Prize" },
@@ -18,14 +19,12 @@ function EBOI_EVENT:cambiador_de_items_smol()
         { id = 273, weight = 6, name = "Bob's Brain" },
         { id = 15, weight = 6, name = "<3" },
         { id = regalo_smol, weight = 6, name = "Smol's Present" },
+        { id = 0, weight = 6, name = "pedestal?" },
     }
 
     for i, entity in ipairs(Isaac.GetRoomEntities()) do
         pickup = entity:ToPickup()
-        
-        
         if entity.Type == EntityType.ENTITY_PICKUP and entity.Variant == 100 then
-            local esta_en_la_lista = false
             if entity.Type == EntityType.ENTITY_PICKUP then
                 local esta_en_la_lista = false
     
@@ -37,9 +36,9 @@ function EBOI_EVENT:cambiador_de_items_smol()
                 end
                 
                 if not esta_en_la_lista then
-                    print(entity.Type, entity.SubType,entity.Variant, pickup.Wait, "item no encontrado")
+                    print(entity.Type, entity.SubType,entity.Variant, pickup.Wait ,"pre")
                     pickup:Morph(entity.Type, entity.Variant, regalo_smol, KeepPrice, false, true)
-                    print(entity.Type, entity.SubType,entity.Variant, pickup.Wait, "nuevo item smol")
+                    print(entity.Type, entity.SubType,entity.Variant, pickup.Wait ,"post")
                 end
             end
         end
