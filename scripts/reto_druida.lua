@@ -5,13 +5,14 @@ local colores = {1,1,1}
 local depresion = 0
 local se_limpio_el_piso = false
 local depresion_severa = false
+local personaje = PlayerType.PLAYER_ISAAC
 function EBOI_EVENT:movimiento_constante()
     if Isaac.GetChallenge() ~= challenge_druida then return end
     local player = Isaac.GetPlayer()
     tiempo = tiempo + 1
     --print(tiempo)
 
-    if Input.IsActionPressed(ButtonAction.ACTION_UP,0) or Input.IsActionPressed(ButtonAction.ACTION_DOWN,0) or Input.IsActionPressed(ButtonAction.ACTION_LEFT,0) or Input.IsActionPressed(ButtonAction.ACTION_RIGHT,0) then
+    if Input.IsActionPressed(ButtonAction.ACTION_UP,player.ControllerIndex) or Input.IsActionPressed(ButtonAction.ACTION_DOWN,player.ControllerIndex) or Input.IsActionPressed(ButtonAction.ACTION_LEFT,player.ControllerIndex) or Input.IsActionPressed(ButtonAction.ACTION_RIGHT,player.ControllerIndex) then
         tiempo = 0
         return
     elseif tiempo > 15 then
@@ -28,6 +29,7 @@ EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_UPDATE,EBOI_EVENT.movimiento_constan
 
 function EBOI_EVENT:inicio_de_challenge()
     tiempo = 0
+    depresion_severa = false
 end
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_GAME_STARTED,EBOI_EVENT.inicio_de_challenge)
 
@@ -209,11 +211,13 @@ function EBOI_EVENT:trinkettoucg(player)
     if Isaac.GetChallenge() ~= challenge_druida then
         return
     end
-
-    if not player:HasTrinket(TrinketType.TRINKET_RAINBOW_WORM) then
-        player:TryRemoveTrinket(player:GetTrinket(0))
-        player:AddTrinket(TrinketType.TRINKET_RAINBOW_WORM,true)  
+    if player:GetPlayerType() == personaje then
+        if not player:HasTrinket(TrinketType.TRINKET_RAINBOW_WORM) then
+            player:TryRemoveTrinket(player:GetTrinket(0))
+            player:AddTrinket(TrinketType.TRINKET_RAINBOW_WORM,true)  
+        end
     end
+    
 end
 
 EBOI_EVENT:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE,EBOI_EVENT.trinkettoucg)
