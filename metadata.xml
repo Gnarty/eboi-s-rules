@@ -3,24 +3,58 @@
     <name>Eboi's rules</name>
     <directory>eboi's rules</directory>
     <id>3424543796</id>
-    <description>Mod del evento de Eboi28 con sus respectivos retos
+    <description>Eboi’s Rules – ¡Acepta el reto! 🎲🔥
+Eboi's Rules es un mod que trae desafíos únicos y mecánicas especiales para que puedas poner a prueba tus habilidades (y tu paciencia). 😈
 
+📢 ¡Evento en curso! 📢
+Únete al servidor oficial de Discord de Chanekia y participa en el evento donde puedes ganar premios en efectivo 🏆💰 completando los retos con el mayor puntaje o siendo de los primeros en lograrlos.
 
+🔗 Únete aquí: https://discord.gg/7gyMGQheJj
 
-Version Beta 1.1 (actual)
+📜 Versiones y Retos Disponibles
 
-- se libera el primer reto: 
+🆕 Versión 1.5 –😿Druida's Funhouse😿
+Aquí, el caos es la única regla y la diversión… es cuestionable. 🎲🎪
 
+🏃‍♂️ Siempre en movimiento – Si dejas de presionar WASD, recibirás daño. ¡No te quedes quieto!
+🎲 El caos es divertido – Cada vez que entres a una sala nueva, se activará un dado aleatorio.
+🕶️ No al aburrimiento – Si no completas todo el piso (excepto las salas secretas), recibirás Depresión:
 
-Eboi's Addiction  
- **Poker touch**: Cualquier trincket que agarres se volver poker chip,.
-**Encadenado**: no puedes soltar tus objetos
-**NO! touch**: cualquier trinket que agarres en el segundo slot se volvera NO!
-**Apuesta y reclama**: No puedes agarrar items hasta que hayas intentado gamblearlo con tu activo
+El juego se volverá cada vez más oscuro.
+Ganarás la maldición de Darkness.
+🌞 No a la depresión – Si logras limpiar el piso entero, te curarás.
+⛓️ Encadenado – No puedes soltar tus objetos.
+🌀 Worm Touch – Cualquier trinket que tomes se convertirá en Rainbow Worm.
+🎪 La diversión nunca termina… o sí? 😈
 
+🆕 Versión 1.4 –☠️ Gnarty's Temptation ☠️
 
-</description>
-    <version>1.2</version>
+- curse de los items infinita
+
+- se cambio el final a delirium
+
+🆕 Versión 1.3 (Actual) –☠️ Gnarty's Temptation ☠️
+
+&quot;El destino juega con tu vida... ¿te atreves a tentar a la muerte?&quot;
+
+🔥 Suicide Touch: Cada carta, píldora o runa que toques se convertirá en la temida Suicide King Card. ¿Te sientes afortunado?
+
+🔗 Encadenado: Tus elecciones son definitivas... No puedes soltar los objetos que recojas. Cada decisión pesa sobre tu alma.
+
+💀 Juego con la Muerte: Como si el mismo destino se burlara de ti, el objeto de T-Forgotten y la Suicide King Card intercambiarán de lugar cada cierto tiempo. ¿Puedes mantener el control antes de que sea demasiado tarde?
+
+🆕 Versión 1.2  – Gaby’s Nightmare 🌙💀
+💠 Holy Disgrace – La Holy Mantle ahora activa el efecto de The Tower cuando se destruye.
+💠 Super The Lost – Si pierdes tu última Holy, activarás todos los ítems que se disparan al recibir daño.
+
+🎲 Versión 1.1 – Eboi’s Addiction 🃏🔥
+💠 Poker Touch – Cualquier trinket que agarres se convierte en Poker Chip.
+💠 Encadenado – No puedes soltar tus objetos.
+💠 NO! Touch – Cualquier trinket en el segundo slot se convierte en NO!.
+💠 Apuesta y reclama – No puedes tomar ítems hasta que los hayas apostado con tu activo.
+
+📌 Más retos se desbloquearán pronto… ¿Tienes lo que se necesita para superarlos? 😏</description>
+    <version>1.9</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Challenges"/>
