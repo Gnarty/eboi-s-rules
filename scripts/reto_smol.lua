@@ -36,9 +36,9 @@ function EBOI_EVENT:cambiador_de_items_smol()
                 end
                 
                 if not esta_en_la_lista then
-                    print(entity.Type, entity.SubType,entity.Variant, pickup.Wait ,"pre")
-                    pickup:Morph(entity.Type, entity.Variant, regalo_smol, KeepPrice, false, true)
-                    print(entity.Type, entity.SubType,entity.Variant, pickup.Wait ,"post")
+                    --print(entity.Type, entity.SubType,entity.Variant, pickup.Wait ,"pre")
+                    pickup:Morph(entity.Type, entity.Variant, regalo_smol, true, false, true)
+                    --print(entity.Type, entity.SubType,entity.Variant, pickup.Wait ,"post")
                 end
             end
         end
